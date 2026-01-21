@@ -1,0 +1,33 @@
+# ===== Python =====
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# ===== Virtual Environment =====
+venv/
+.env/
+.env.*
+
+# ===== Ollama =====
+.ollama/
+ollama/
+models/
+*.gguf
+
+# ===== Streamlit =====
+.streamlit/
+.streamlit/config.toml
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ===== IDE =====
+.vscode/
+.idea/
+
+# ===== Temp / Cache =====
+.cache/
+tmp/

@@ -17,8 +17,7 @@ models/
 *.gguf
 
 # ===== Streamlit =====
-.streamlit/
-.streamlit/config.toml
+.streamlit/secrets.toml
 
 # ===== OS =====
 .DS_Store

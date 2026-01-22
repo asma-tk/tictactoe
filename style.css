@@ -137,3 +137,13 @@ div[data-testid="stCheckbox"] {
     border: 1px solid #3b82f6 !important;
     border-radius: 12px !important;
 }
+
+[data-testid="stToolbar"] {
+    display: none;
+}
+
+/* Hide header spacing left by toolbar */
+header {
+    visibility: hidden;
+    height: 0px;
+}

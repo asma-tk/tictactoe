@@ -1,91 +1,139 @@
-
-
-
-/* --- MASQUER LE MENU ET LE HEADER --- */
-#MainMenu {visibility: hidden !important;}
-header[data-testid="stHeader"] {background: transparent !important;}
-
-/* --- RENDRE L'ANIMATION VISIBLE --- */
-[data-testid="stStatusWidget"] {
-    visibility: visible !important;
-    background-color: rgba(0, 0, 0, 0.4) !important;
-    border: 1px solid #ff00ff !important;
-    border-radius: 12px !important;
-    padding: 5px 10px !important;
-    box-shadow: 0 0 15px #ff00ff !important;
-}
-[data-testid="stStatusWidget"] div { color: #ffffff !important; font-weight: bold !important; text-shadow: 0 0 10px #ff00ff !important; }
-[data-testid="stStatusWidget"] svg { fill: #ffffff !important; filter: drop-shadow(0 0 5px #ffffff) !important; transform: scale(1.2); }
+/* --- MASQUER LES ÉLÉMENTS PAR DÉFAUT --- */
+#MainMenu { visibility: hidden !important; }
+header[data-testid="stHeader"] { background: transparent !important; }
+footer { visibility: hidden !important; }
 
 /* --- STYLE GLOBAL --- */
-html, body, [data-testid="stWidgetLabel"], .stMarkdown, p, h1, h2, h3, span, div, label { color: white !important; }
-.stApp { background: radial-gradient(circle at center, #1e293b 0%, #020617 100%); overflow: hidden; }
-.block-container { padding-top: 1rem !important; }
-h1 { text-align: center;  font-size: 2rem !important; margin-bottom: 20px !important; }
+html, body, [data-testid="stWidgetLabel"], .stMarkdown, p, h1, h2, h3, span, div, label { 
+    color: white !important; 
+    font-family: 'Inter', sans-serif;
+}
 
-/* --- BOX SHADOW AUTOUR DES BOUTONS (C1, C2, C3, C4) --- */
+.stApp { 
+    background: radial-gradient(circle at center, #1e293b 0%, #020617 100%) !important; 
+    overflow: hidden; 
+}
+
+.block-container { padding-top: 2rem !important; }
+
+/* --- BARRE DE CONTRÔLE (ALIGNEMENT TOTAL C1 à C6) --- */
 div[data-testid="stHorizontalBlock"] {
     background: rgba(255, 255, 255, 0.05) !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 15px !important;
     padding: 15px 20px !important;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 255, 255, 0.2) !important;
-    backdrop-filter: blur(4px) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(8px) !important;
     margin-bottom: 25px !important;
+    
+    /* Force l'alignement vertical au centre pour tous les widgets */
+    display: flex !important;
+    align-items: center !important; 
 }
 
-/* Style des boutons */
+/* Supprimer les marges Streamlit qui décalent les colonnes */
+div[data-testid="stHorizontalBlock"] > div {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+}
+
+/* --- SELECTBOXES (X & O) --- */
+/* Corps de la boîte */
+div[data-baseweb="select"] > div:first-child {
+    background-color: #0f172a !important; 
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 10px !important;
+    color: white !important;
+    min-height: 40px;
+}
+
+/* Menu déroulant (Popover) */
+div[data-baseweb="popover"] ul {
+    background-color: #0f172a !important;
+    border: 1px solid #3b82f6 !important;
+}
+
+div[data-baseweb="popover"] li {
+    color: white !important;
+    background-color: transparent !important;
+}
+
+div[data-baseweb="popover"] li:hover {
+    background-color: #3b82f6 !important;
+}
+
+/* --- BOUTONS (C1 & C4) --- */
 .stButton button {
     border-radius: 8px;
     background: linear-gradient(90deg, #3b82f6, #8b5cf6) !important;
     color: white !important;
+    border: none !important;
+    height: 40px;
+    transition: all 0.3s ease;
     width: 100%;
-    white-space: nowrap;
+    margin-top:20px;
 }
 
-/* On click (pressed) effect */
-.stButton button:active {
-    transform: translateY(1px) scale(0.98);
-    filter: brightness(0.95);
+.stButton button:hover {
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+    transform: translateY(-1px);
 }
 
+/* --- TOGGLE & SLIDER --- */
+/* Petit ajustement pour que le label du toggle ne décale pas tout */
+div[data-testid="stCheckbox"] {
+    margin-bottom: 0px !important;
+    margin-top: 40px;
+}
+
+/* --- PLATEAU DE JEU (TIC-TAC-TOE) --- */
 .board {
   display: grid;
-  grid-template-columns: repeat(10, 38px);
-  gap: 4px;
-  padding: 10px;
-  margin: 10px auto;
-  background: rgba(15, 23, 42, 0.8);
+  grid-template-columns: repeat(10, 40px);
+  gap: 5px;
+  padding: 15px;
+  margin: 20px auto;
+  background: rgba(15, 23, 42, 0.9);
   border: 2px solid #3b82f6;
   border-radius: 12px;
   width: fit-content;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
 }
 
 .cell {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   background: #0f172a;
   border: 1px solid #1e293b;
   border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
-  transition: all 0.2s ease;
 }
 
-/* --- ANIMATION QUI RESTE (FORWARDS) --- */
-@keyframes stay-yellow {
-    0% { transform: scale(0.8); box-shadow: 0 0 0px #fef08a; }
-    50% { transform: scale(1.1); box-shadow: 0 0 20px #fef08a; }
-    100% { transform: scale(1.0); box-shadow: 0 0 12px #fef08a, inset 0 0 5px rgba(254, 240, 138, 0.5); border-color: #fef08a !important; }
+/* --- ANIMATIONS --- */
+@keyframes mark-appear {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1.0); opacity: 1; }
 }
 
-.cell-x, .cell-o {
-    animation: stay-yellow 0.4s ease-out forwards;
+.cell-x { 
+    color: #60a5fa !important; 
+    text-shadow: 0 0 10px #3b82f6;
+    animation: mark-appear 0.3s ease-out forwards;
 }
 
-.cell-x { color: #60a5fa !important; text-shadow: 0 0 8px #3b82f6; }
-.cell-o { color: #f87171 !important; text-shadow: 0 0 8px #ef4444; }
+.cell-o { 
+    color: #f87171 !important; 
+    text-shadow: 0 0 10px #ef4444;
+    animation: mark-appear 0.3s ease-out forwards;
+}
 
+/* --- STATUS WIDGET --- */
+[data-testid="stStatusWidget"] {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    border: 1px solid #3b82f6 !important;
+    border-radius: 12px !important;
+}

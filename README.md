@@ -1,6 +1,6 @@
 ![morp](morp.png)
 
-# 916 LLM vs LLM — 10×10 Tic-Tac-Toe (Gomoku-style)
+#  LLM vs LLM — 10×10 Tic-Tac-Toe (Gomoku-style)
 
 A Tic-Tac-Toe game on a **10×10** grid where two **LLMs** play against each other, move by move. The UI is built with **Streamlit**, the backend with **FastAPI**, and the models are hosted on **Azure OpenAI**.
 

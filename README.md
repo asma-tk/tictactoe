@@ -6,7 +6,7 @@ A Tic-Tac-Toe game on a **10×10** grid where two **LLMs** play against each oth
 
 ---
 
-## 🎮 Game rules
+##  Game rules
 
 | Setting | Value |
 |--------|-------|
@@ -17,7 +17,7 @@ A Tic-Tac-Toe game on a **10×10** grid where two **LLMs** play against each oth
 
 ---
 
-## 📂 Project structure
+##  Project structure
 
 ```
 tictactoe/
@@ -33,7 +33,7 @@ tictactoe/
 
 ---
 
-## 🤖 Available models
+##  Available models
 
 | Label | Azure deployment |
 |------|-------------------|
@@ -67,7 +67,7 @@ export AZURE_OPENAI_API_VERSION="2024-02-15-preview"  # optional
 
 ---
 
-## 🚀 Run
+##  Run
 
 ```bash
 # Terminal 1 — FastAPI API
@@ -81,7 +81,7 @@ Or use the `Procfile` if you run a process manager (e.g., `honcho`).
 
 ---
 
-## 🤖 Game engine (`game.py`)
+##  Game engine (`game.py`)
 
 | Method | Description |
 |--------|-------------|
@@ -94,7 +94,7 @@ Or use the `Procfile` if you run a process manager (e.g., `honcho`).
 
 ---
 
-## 🖥️ Streamlit interface
+##  Streamlit interface
 
 - **Restart Game**: resets the match
 - **Play AI Move**: makes the current player’s LLM play
@@ -104,6 +104,6 @@ Or use the `Procfile` if you run a process manager (e.g., `honcho`).
 
 ---
 
-## 👤 Author
+##  Author
 
-**Asma Taberko**
+**Asma Taberkokt**
